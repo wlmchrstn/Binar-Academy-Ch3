@@ -12,6 +12,11 @@ import Message from '../../components/message/message';
 
 // Assets
 import chevronRight from '../../assets/icons/fi_chevron-right.svg';
+import plus from '../../assets/icons/fi_plus.svg';
+import trash from '../../assets/icons/fi_trash.svg';
+import edit from '../../assets/icons/fi_edit.svg';
+import key from '../../assets/icons/fi_key.svg';
+import clock from '../../assets/icons/fi_clock.svg';
 
 const Cars = ({ sideBarState, data }) => {
     const [audit,setAudit] = useState(false);
@@ -74,20 +79,22 @@ const Cars = ({ sideBarState, data }) => {
                     </Title>
                 </div>
                 <div className={styles['card-rent']}>
+                    <img src={key} alt={'logo-key'} />
                     <Paragraph variant={'body-1-light'}>
                         {`${data.startRent} - ${data.finishRent}`}
                     </Paragraph>
                 </div>
                 <div className={styles['card-update']}>
+                    <img src={clock} alt={'logo-clock'} />
                     <Paragraph variant={'body-1-light'}>
                         {`Updated at ${data.update}`}
                     </Paragraph>
                 </div>
                 <div className={styles['card-cta']}>
-                    <Button onClick={() => handleDelete()} type={'button'} variant={'secondary-outlined'} color={'red'}>
+                    <Button onClick={() => handleDelete()} type={'button'} variant={'secondary-outlined'} color={'red'} withIcon={trash} withIconLabel={'logo-trash'}>
                         {'Delete'}
                     </Button>
-                    <Button onClick={() => setAudit(true)} type={'button'}  variant={'secondary'} color={'white'}>
+                    <Button onClick={() => setAudit(true)} type={'button'}  variant={'secondary'} color={'white'} withIcon={edit} withIconLabel={'logo-edit'}>
                         {'Edit'}
                     </Button>
                 </div>
@@ -239,7 +246,7 @@ const Cars = ({ sideBarState, data }) => {
                         <Title tagElement={'h2'} variant={'heading-2'} color={'black'}>
                             {'List Car'}
                         </Title>
-                        <Button onClick={() => setAudit(true)} variant={'primary'} color={'white'}>
+                        <Button onClick={() => setAudit(true)} variant={'primary'} color={'white'} withIcon={plus} withIconLabel={'logo-plus'}>
                             {'Add New Car'}
                         </Button>
                     </>

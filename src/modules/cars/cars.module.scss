@@ -98,19 +98,23 @@
         margin-top: 8px;
     }
 
-    &-rent {
-        margin-top: 16px;
-    }
-
-    &-update {
-        margin-top: 16px;
-    }
-
     &-cta {
         column-gap: 16px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         margin-top: 24px;
+    }
+}
+
+.card-update,
+.card-rent {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-top: 16px;
+
+    img {
+        margin-right: 8px;
     }
 }
 
