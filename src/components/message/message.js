@@ -5,15 +5,13 @@ import styles from './message.module.scss';
 import Title from '../title/title';
 
 const Message = ({ variant, children }) => {
-    if ((variant === 'success') || (variant === 'deleted')) return (
+    return (
         <div className={classNames(styles.root, styles[variant])}>
             <Title tagElement={'h3'} variant={'title'} color={'white'}>
                 {children}
             </Title>
         </div>
     );
-
-    return null;
 };
 
 Message.propTypes = {
