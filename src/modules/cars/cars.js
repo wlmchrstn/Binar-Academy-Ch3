@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './cars.module.scss';
@@ -7,12 +7,16 @@ import Paragraph from '../../components/paragraph/paragraph';
 import Title from '../../components/title/title';
 import Button from '../../components/button/button';
 import Input from '../../components/input/input';
+import Message from '../../components/message/message';
 
 import chevronRight from '../../assets/icons/fi_chevron-right.svg';
 
 const Cars = ({ sideBarState, data }) => {
     const [audit,setAudit] = useState(false);
     const [filter,setFilter] = useState('All');
+    const [message,setMessage] = useState('null');
+    const [msg,setMsg] = useState(null);
+    const [showMessage,setShowMessage] = useState(false);
 
     const FilterCTA = ({ state }) => (
         <div onClick={() => setFilter(state)} className={classNames(styles['filter-wrapper'], filter === state ? styles['filter-selected'] : '')}>
@@ -25,6 +29,31 @@ const Cars = ({ sideBarState, data }) => {
 
         let filtered = params.filter((e) => { return e.filter === filter });
         return filtered.map((item, index) => (<Card key={index} data={item} />))
+    };
+
+    useEffect(() => {
+        const timeId = setTimeout(() => {
+            // After 3 seconds set the show value to false
+            setShowMessage(false);
+        }, 3000);
+
+        return () => {
+            clearTimeout(timeId)
+        }
+    }, [showMessage]);
+
+
+    const handleDelete = () => {
+        setMessage('deleted');
+        setMsg('Data Berhasil Dihapus');
+        setShowMessage(true);
+    };
+
+    const handleAudit = () => {
+        setMessage('success');
+        setMsg('Data Berhasil Disimpan');
+        setShowMessage(true);
+        setAudit(false);
     };
 
     const Card = ({ data }) => {
@@ -54,7 +83,7 @@ const Cars = ({ sideBarState, data }) => {
                     </Paragraph>
                 </div>
                 <div className={styles['card-cta']}>
-                    <Button onClick={() => console.log('Deleted')} type={'button'} variant={'secondary-outlined'} color={'red'}>
+                    <Button onClick={() => handleDelete()} type={'button'} variant={'secondary-outlined'} color={'red'}>
                         {'Delete'}
                     </Button>
                     <Button onClick={() => setAudit(true)} type={'button'}  variant={'secondary'} color={'white'}>
@@ -158,7 +187,7 @@ const Cars = ({ sideBarState, data }) => {
                     <Button onClick={() => setAudit(false)} type={'button'} variant={'primary-outlined'}>
                         {'Cancel'}
                     </Button>
-                    <Button onClick={() => setAudit(false)} type={'button'} variant={'primary'}>
+                    <Button onClick={() => handleAudit()} type={'button'} variant={'primary'}>
                         {'Save'}
                     </Button>
                 </div>
@@ -168,6 +197,12 @@ const Cars = ({ sideBarState, data }) => {
 
     return (
         <div className={styles.root}>
+            {showMessage ? (
+                    <Message variant={message}>
+                        {msg}
+                    </Message>
+                ) : null
+            }
             <div className={styles.navigation}>
                 <Paragraph variant={'body-2-bold'} color={'black'}>
                     {sideBarState}
@@ -208,7 +243,6 @@ const Cars = ({ sideBarState, data }) => {
                         </Button>
                     </>
                 )}
-
             </div>
             {audit ? null : (
                 <div className={styles.filter}>
