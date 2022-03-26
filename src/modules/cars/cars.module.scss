@@ -82,8 +82,8 @@
     }
 
     &-image {
-        padding: 31px 16px;
         box-sizing: 'border-box';
+        padding: 31px 16px;
 
         img {
             width: 100%;
@@ -107,11 +107,10 @@
     }
 
     &-cta {
-        margin-top: 24px;
+        column-gap: 16px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        column-gap: 16px;
-
+        margin-top: 24px;
     }
 }
 
@@ -129,9 +128,9 @@
     }
 
     &-wrapper {
+        align-items: center;
         display: flex;
         flex-direction: row;
-        align-items: center;
     }
 
     &-label {

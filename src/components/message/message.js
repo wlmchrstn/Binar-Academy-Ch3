@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './message.module.scss';
@@ -23,7 +23,7 @@ Message.propTypes = {
 
 Message.defaultProps = {
     variant: 'success',
-    children: null,
+    children: 'Data Berhasil Disimpan',
 };
 
 export default Message;

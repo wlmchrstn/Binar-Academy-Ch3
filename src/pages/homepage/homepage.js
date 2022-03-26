@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import styles from './homepage.module.scss';
 
+// Modules
 import SideBar from '../../modules/sidebar/sidebar';
 import NavBar from '../../modules/navbar/navbar';
 import Dashboard from '../../modules/dashboard/dashboard';
 import Cars from '../../modules/cars/cars';
 
+// Assets
 import smallCar from '../../assets/images/small.png';
 import mediumCar from '../../assets/images/medium.png';
 import largeCar from '../../assets/images/large.png';
 
+// Dummy data
 const order = {
     col1: 'User Email',
     col2: 'Car',
@@ -116,7 +119,7 @@ const Homepage = () => {
             </div>
             <SideBar handleSideBar={setSideBar} handleContent={setDashboard} sideBarState={sideBar} contentState={dashboard} />
         </section>
-    )
+    );
 };
 
 export default Homepage;

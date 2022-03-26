@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './sidebar.module.scss';
 
+// Components
+import Paragraph from '../../components/paragraph/paragraph';
+
+// Assets
 import logo from '../../assets/icons/logo.svg';
 import logoSmall from '../../assets/icons/logo-small.svg';
 import dashboard from '../../assets/icons/fi_home.svg';
 import cars from '../../assets/icons/fi_truck.svg';
-
-import Paragraph from '../../components/paragraph/paragraph';
 
 const SideBar = ({ handleSideBar, sideBarState, handleContent, contentState, ...props }) => {
     const getContent = () => {
@@ -90,11 +92,17 @@ const SideBar = ({ handleSideBar, sideBarState, handleContent, contentState, ...
 };
 
 SideBar.propTypes = {
-    state: PropTypes.string.isRequired,
+    handleSideBar: PropTypes.string.isRequired,
+    sideBarState: PropTypes.string.isRequired,
+    handleContent: PropTypes.string.isRequired,
+    contentState: PropTypes.string.isRequired,
 };
 
 SideBar.defaultProps = {
-    state: 'dashboard',
+    handleSideBar: 'Dashboard',
+    sideBarState: 'Order',
+    handleContent: 'Dashboard',
+    contentState: 'Order',
 };
 
 export default SideBar;

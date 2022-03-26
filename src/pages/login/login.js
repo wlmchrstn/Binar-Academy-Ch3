@@ -66,7 +66,7 @@ const Login = () => {
                 </Button>
             </form>
         </section>
-    )
+    );
 };
 
 export default Login;

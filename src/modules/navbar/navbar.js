@@ -2,13 +2,16 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './navbar.module.scss';
 
-import menu from '../../assets/icons/fi_menu.svg';
-import chevronDown from '../../assets/icons/fi_chevron-down.svg';
-
+// Components
 import Paragraph from '../../components/paragraph/paragraph';
 import Input from '../../components/input/input';
 import Button from '../../components/button/button';
 import Title from '../../components/title/title';
+
+// Assets
+import menu from '../../assets/icons/fi_menu.svg';
+import chevronDown from '../../assets/icons/fi_chevron-down.svg';
+
 
 const NavBar = ({ ...props }) => {
     const { register, handleSubmit } = useForm();

@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './cars.module.scss';
 
+// Components
 import Paragraph from '../../components/paragraph/paragraph';
 import Title from '../../components/title/title';
 import Button from '../../components/button/button';
 import Input from '../../components/input/input';
 import Message from '../../components/message/message';
 
+// Assets
 import chevronRight from '../../assets/icons/fi_chevron-right.svg';
 
 const Cars = ({ sideBarState, data }) => {
@@ -17,19 +19,6 @@ const Cars = ({ sideBarState, data }) => {
     const [message,setMessage] = useState('null');
     const [msg,setMsg] = useState(null);
     const [showMessage,setShowMessage] = useState(false);
-
-    const FilterCTA = ({ state }) => (
-        <div onClick={() => setFilter(state)} className={classNames(styles['filter-wrapper'], filter === state ? styles['filter-selected'] : '')}>
-            {state}
-        </div>
-    );
-
-    const getMobil = (params) => {
-        if (filter === 'All') return params.map((item, index) => (<Card key={index} data={item} />));
-
-        let filtered = params.filter((e) => { return e.filter === filter });
-        return filtered.map((item, index) => (<Card key={index} data={item} />))
-    };
 
     useEffect(() => {
         const timeId = setTimeout(() => {
@@ -42,6 +31,18 @@ const Cars = ({ sideBarState, data }) => {
         }
     }, [showMessage]);
 
+    const FilterCTA = ({ state }) => (
+        <div onClick={() => setFilter(state)} className={classNames(styles['filter-wrapper'], filter === state ? styles['filter-selected'] : '')}>
+            {state}
+        </div>
+    );
+
+    const getMobil = (params) => {
+        if (filter === 'All') return params.map((item, index) => (<Card key={index} data={item} />));
+
+        let filtered = params.filter((e) => { return e.filter === filter });
+        return filtered.map((item, index) => (<Card key={index} data={item} />));
+    };
 
     const handleDelete = () => {
         setMessage('deleted');
@@ -260,7 +261,7 @@ const Cars = ({ sideBarState, data }) => {
                 </div>
             )}
         </div>
-    )
+    );
 };
 
 Cars.propTypes = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './custom404.module.scss';
 
 const Custom404 = () => {
@@ -10,11 +11,11 @@ const Custom404 = () => {
             <h2>
                 {'Page not found'}
             </h2>
-            {/* <Link to={'/'}>
+            <Link to={'/'}>
                 {'Back to home'}
-            </Link> */}
+            </Link>
         </div>
-    )
+    );
 };
 
 export default Custom404;

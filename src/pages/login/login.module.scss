@@ -5,12 +5,12 @@
 }
 
 .image {
-    display: flex;
-    flex: 2;
     background-image: url('../../assets/images/login-bg.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex: 2;
     width: 100%;
 }
 
@@ -39,8 +39,8 @@
 }
 
 .logo {
-    width: 100px;
     height: 34px;
+    width: 100px;
 }
 
 .error {

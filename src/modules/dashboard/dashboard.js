@@ -3,16 +3,19 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './dashboard.module.scss';
 
+// Components
 import Paragraph from '../../components/paragraph/paragraph';
 import Title from '../../components/title/title';
 import Input from '../../components/input/input';
 import Button from '../../components/button/button';
 
+// Assets
 import chevronRight from '../../assets/icons/fi_chevron-right.svg';
 import sort from '../../assets/icons/fi_sort.svg';
 import doubleChevronRight from '../../assets/icons/fi_double-chevrons-right.svg';
 import doubleChevronLeft from '../../assets/icons/fi_double-chevrons-left.svg';
 
+// Dummy data
 const order = {
     col1: 'User Email',
     col2: 'Car',
@@ -233,11 +236,13 @@ const Dashboard = ({ sideBarState, state, data }) => {
 };
 
 Dashboard.propTypes = {
+    sideBarState: PropTypes.string.isRequired,
     state: PropTypes.string.isRequired,
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 Dashboard.defaultProps = {
+    sideBarState: 'Dashboard',
     state: 'Order',
     data: [],
 };
